@@ -4,6 +4,7 @@ import requests
 import json
 import os
 from dotenv import load_dotenv
+from util import get_time
 
 # Loads the environment file
 load_dotenv('.env')
@@ -24,8 +25,8 @@ def get_war_status():
     if json_data['state'] == 'notInWar':
         return "We are currently not in a war."
     else:
-        return ("We are currently in a war with " + json_data['opponent']['name'] + ". " + "It will end " + json_data[
-            'endTime'])
+        return ("We are currently in a war with " + json_data['opponent']['name'] + ". " + "It will end in " + get_time(json_data[
+            'endTime']) + ". " + "The following members are drafted in the war: ")
 
 
 # Retrieves the clan info from the clash of clans API
