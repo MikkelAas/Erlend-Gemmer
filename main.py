@@ -1,24 +1,31 @@
+# Imports
+from handler import get_clan_info, get_war_status
 import discord
 import os
+from dotenv import load_dotenv
+
 
 client = discord.Client()
+load_dotenv('.env')
+bot_token = str(os.getenv('BOT_TOKEN'))
+
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
-
-    if message.content.startswith('$hello'):
+    elif message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-client.run("ODczNjI4MjEzMjc5MDgwNTQ4.YQ7LrQ.ChCAfOL85anR8eOfrsAQRupVqYw")
+    elif message.content.startswith('$warStatus'):
+        await message.channel.send(get_war_status())
 
+    elif message.content.startswith('$info'):
+        await message.channel.send(get_clan_info())
 
-
-
+client.run(bot_token)
