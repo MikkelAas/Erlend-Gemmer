@@ -34,4 +34,28 @@ def get_war_status():
 def get_clan_info():
     res = requests.get(clanInfoURL, headers=headers)
     json_data = json.loads(res.text)
-    return "Tag: " + json_data['tag']
+
+    return (
+        "Tag: " + json_data['tag'] + "\n"
+        + "Name: " + json_data['name'] + "\n"
+        + "War league: " + json_data["warLeague"]["name"] + "\n"
+        + "Win rate: " + str(round(json_data['warWins']/(json_data['warWins']+json_data['warLosses']), 2)) + "\n"
+        + "Current winstreak: " + str(json_data['warWinStreak']) + '\n'
+        + "Members: " + str(get_members(json_data))
+    )
+
+
+def get_members(json_data):
+    members = []
+    #res = requests.get(clanInfoURL, headers=headers)
+    #json_data = json.loads(res.text)
+
+    for i in range(len(json_data['memberList'])):
+        members.append(json_data['memberList'][i]['name']) 
+    
+    string = ""
+
+    for member in members:
+        string += member + ", "
+    
+    return string[:-2]
