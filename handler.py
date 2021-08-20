@@ -44,11 +44,9 @@ def get_clan_info():
         + "Members: " + str(get_members(json_data))
     )
 
-
+# Retrieves all the members of a clan
 def get_members(json_data):
     members = []
-    #res = requests.get(clanInfoURL, headers=headers)
-    #json_data = json.loads(res.text)
 
     for i in range(len(json_data['memberList'])):
         members.append(json_data['memberList'][i]['name']) 
