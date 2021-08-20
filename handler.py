@@ -41,11 +41,11 @@ def get_clan_info():
         + "War league: " + json_data["warLeague"]["name"] + "\n"
         + "Win rate: " + str(round(json_data['warWins']/(json_data['warWins']+json_data['warLosses']), 2)) + "\n"
         + "Current winstreak: " + str(json_data['warWinStreak']) + '\n'
-        + "Members: " + str(get_members(json_data))
+        + "Members: " + str(get_all_clan_members(json_data))
     )
 
 # Retrieves all the members of a clan
-def get_members(json_data):
+def get_all_clan_members(json_data):
     members = []
 
     for i in range(len(json_data['memberList'])):
