@@ -1,4 +1,5 @@
 # Imports
+from logging import NullHandler
 from handler import get_clan_info, get_war_status
 import discord
 import os
@@ -20,7 +21,14 @@ async def on_message(message):
     if message.author == client.user:
         return
     elif message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+        value = ""
+        try:
+            value = message.content.split("$hello ", 1)[1]
+        except:
+            await message.channel.send("Hello!")
+                
+        if value != "":
+            await message.channel.send("Hello " + value + "!")
 
     elif message.content.startswith('$warStatus'):
         await message.channel.send(get_war_status())
