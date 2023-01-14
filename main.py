@@ -31,7 +31,7 @@ async def on_message(message):
         if value != "":
             await message.channel.send("Hello " + value + "!")
 
-    elif message.content.startswith('$warStatus'):
+    elif message.content.startswith('$status'):
         await message.channel.send(get_war_status())
 
     elif message.content.startswith('$info'):
