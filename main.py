@@ -24,7 +24,7 @@ async def on_message(message):
         value = ""
         try:
             value = message.content.split("$hello ", 1)[1]
-        except:
+        except Exception:
             await message.channel.send("Hello!")
                 
         if value != "":
