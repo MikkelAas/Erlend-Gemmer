@@ -23,11 +23,12 @@ currentWarURL = "https://api.clashofclans.com/v1/clans/%232LUGVU89Q/currentwar"
 def get_war_status():
     res = requests.get(currentWarURL, headers=headers)
     json_data = json.loads(res.text)
+    
     if json_data['state'] == 'notInWar':
         return "We are currently not in a war."
-    else:
-        return ("We are currently in a war with " + json_data['opponent']['name'] + ". " + "It will end in " + get_time(json_data[
-            'endTime']) + ". " + "The following members are drafted in the war: ")
+    
+    return ("We are currently in a war with " + json_data['opponent']['name'] + ". " + "It will end in " + get_time(json_data[
+        'endTime']) + ". " + "The following members are drafted in the war: ")
 
 
 # Retrieves the clan info from the clash of clans API
