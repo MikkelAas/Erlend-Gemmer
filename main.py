@@ -6,7 +6,8 @@ import os
 from dotenv import load_dotenv
 
 
-client = discord.Client()
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
 load_dotenv('.env')
 bot_token = str(os.getenv('BOT_TOKEN'))
 
@@ -26,7 +27,7 @@ async def on_message(message):
             value = message.content.split("$hello ", 1)[1]
         except Exception:
             await message.channel.send("Hello!")
-                
+
         if value != "":
             await message.channel.send("Hello " + value + "!")
 
