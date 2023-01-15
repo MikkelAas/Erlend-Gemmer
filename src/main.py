@@ -1,5 +1,5 @@
 # Imports
-from handler import get_clan_info, get_war_status
+from services.clan import get_clan_info, get_war_status
 import discord
 import os
 from dotenv import load_dotenv
