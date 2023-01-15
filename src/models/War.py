@@ -1,7 +1,5 @@
-import Oponent
+from models.Oponent import Oponent
 from dataclasses import dataclass
-import sys
-sys.path.append('./models/Oponent.py')
 
 
 @dataclass
