@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from util import get_time
 
 # Loads the environment file
-load_dotenv(".env")
+load_dotenv("../.env")
 
 # Stores the API token that is kept in the .env file
 API_token: str = str(os.getenv("API_TOKEN"))
