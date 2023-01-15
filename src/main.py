@@ -1,5 +1,5 @@
 # Imports
-from handler import generate_clan_info_text, get_war_status
+from handler import get_clan_info, get_war_status
 import discord
 import os
 from dotenv import load_dotenv
@@ -31,10 +31,10 @@ async def on_message(message):
             await message.channel.send("Hello " + value + "!")
 
     elif message.content.startswith("$status"):
-        await message.channel.send(get_war_status())
+        await message.channel.send(embed=get_war_status())
 
     elif message.content.startswith("$info"):
-        await message.channel.send(generate_clan_info_text())
+        await message.channel.send(embed=get_clan_info())
 
 
 client.run(bot_token)
