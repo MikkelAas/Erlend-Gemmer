@@ -2,7 +2,7 @@ import requests
 from models.Clan import Clan
 from models.War import War
 from requests import Response
-from constants import base_url, version, clan_tag, headers
+from api.constants import base_url, version, clan_tag, headers
 
 
 def fetch_clan_info() -> Clan:
