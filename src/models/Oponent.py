@@ -1,6 +1,3 @@
-from dataclasses import dataclass
-
-
-@dataclass
 class Oponent:
-    name: str
+    def __init__(self, data: dict) -> None:
+        self.name: str = data.get("name")
