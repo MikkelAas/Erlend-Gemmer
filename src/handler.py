@@ -7,7 +7,7 @@ from models.Clan import Clan
 from models.Member import Member
 from models.War import War
 from typing import List
-from discord import Embed
+from discord import Embed, Colour
 
 # Retrieves the war status of the clan from the clash of clans API
 def get_war_status() -> Embed:
@@ -47,7 +47,9 @@ def calculate_win_rate(wins: int, losses: int) -> float:
 
 
 def generate_clan_info_embed(clan: Clan) -> Embed:
-    embed = Embed(title="Erlend Gemmer", description="General info")
+    embed = Embed(
+        title="Erlend Gemmer", description="General info", colour=Colour.blue()
+    )
 
     win_rate: str = str(calculate_win_rate(clan.war_wins, clan.war_losses))
 
@@ -65,11 +67,17 @@ def generate_clan_info_embed(clan: Clan) -> Embed:
 
 def genereate_war_status_embed(war: War) -> Embed:
     if war.status == "notInWar":
-        return Embed(title="War status", description="We are currently not in a war.")
+        return Embed(
+            title="War status",
+            description="We are currently not in a war.",
+            colour=Colour.red(),
+        )
 
     war_end_time = get_time(war.end_time)
 
-    embed = Embed(title="War state", description="We are currently in a war")
+    embed = Embed(
+        title="War state", description="We are currently in a war", color=Colour.green()
+    )
 
     embed.add_field(name="Oponent", value=war.oponent.name)
     embed.add_field(name="End date", value=war_end_time)
