@@ -1,13 +1,13 @@
 # Imports
-from handler import get_clan_info, get_war_status
+from handler import generate_clan_info_text, get_war_status
 import discord
 import os
 from dotenv import load_dotenv
 
-
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-load_dotenv(".env")
+
+load_dotenv("../.env")
 bot_token = str(os.getenv("BOT_TOKEN"))
 
 
@@ -34,7 +34,7 @@ async def on_message(message):
         await message.channel.send(get_war_status())
 
     elif message.content.startswith("$info"):
-        await message.channel.send(get_clan_info())
+        await message.channel.send(generate_clan_info_text())
 
 
 client.run(bot_token)
