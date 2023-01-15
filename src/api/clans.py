@@ -5,14 +5,11 @@ from requests import Response
 import os
 from dotenv import load_dotenv
 
-load_dotenv("../../.env")
+load_dotenv(".env")
 
 base_url = "https://api.clashofclans.com/"
 version = "v1"
 clan_tag = "%232LUGVU89Q"
-
-clanInfoURL: str = "https://api.clashofclans.com/v1/clans/%232LUGVU89Q"
-currentWarURL: str = "https://api.clashofclans.com/v1/clans/%232LUGVU89Q/currentwar"
 
 API_token: str = str(os.getenv("API_TOKEN"))
 headers: object = {"Authorization": "Bearer " + API_token}

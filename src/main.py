@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-load_dotenv("../.env")
+load_dotenv(".env")
 bot_token = str(os.getenv("BOT_TOKEN"))
 
 
