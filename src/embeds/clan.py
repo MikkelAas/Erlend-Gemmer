@@ -45,8 +45,10 @@ def generate_clan_info_embed(clan: Clan) -> Embed:
     return embed
 
 
-# Retrieves all the members of a clan
 def get_all_clan_members(clan_members: List[Member]) -> str:
+    """
+    Retrieves all the members of a clan.
+    """
 
     string: str = ""
 
@@ -56,8 +58,10 @@ def get_all_clan_members(clan_members: List[Member]) -> str:
     return string[:-2]
 
 
-# Calculates the average win rate
 def calculate_win_rate(wins: int, losses: int) -> float:
+    """
+    Calculates the average win rate
+    """
     return round(
         wins / (wins + losses),
         2,
