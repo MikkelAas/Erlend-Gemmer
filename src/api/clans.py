@@ -2,17 +2,7 @@ import requests
 from models.Clan import Clan
 from models.War import War
 from requests import Response
-import os
-from dotenv import load_dotenv
-
-load_dotenv(".env")
-
-base_url = "https://api.clashofclans.com/"
-version = "v1"
-clan_tag = "%232LUGVU89Q"
-
-API_token: str = str(os.getenv("API_TOKEN"))
-headers: object = {"Authorization": "Bearer " + API_token}
+from constants import base_url, version, clan_tag, headers
 
 
 def fetch_clan_info() -> Clan:
