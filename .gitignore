@@ -134,3 +134,5 @@ test.py
 /.idea
 
 .vscode
+
+src/database/members.json
