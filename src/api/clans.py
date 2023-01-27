@@ -7,7 +7,7 @@ from api.constants import base_url, version, clan_tag, headers
 
 
 def fetch_clan_info() -> Clan:
-    url = base_url + version + "/clans/%s" % clan_tag
+    url = f"{base_url}{version}/clans/{clan_tag}"
 
     res: Response = requests.get(url, headers=headers)
 
@@ -22,7 +22,7 @@ def fetch_clan_info() -> Clan:
 
 
 def fetch_current_clan_war() -> War:
-    url = base_url + version + "/clans/%s" % clan_tag + "/currentwar"
+    url = f"{base_url}{version}/clans/{clan_tag}/currentwar"
 
     res: Response = requests.get(url, headers=headers)
 
@@ -37,7 +37,7 @@ def fetch_current_clan_war() -> War:
 
 
 def fetch_clan_members() -> list[Member]:
-    url = base_url + version + "/clans/%s" % clan_tag + "/members"
+    url = f"{base_url}{version}/clans/{clan_tag}/members"
 
     res: Response = requests.get(url, headers=headers)
 
