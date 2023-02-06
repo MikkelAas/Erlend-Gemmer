@@ -1,4 +1,4 @@
-from database.database import get_member_tag
+from database.userRepository import get_member_tag
 from api.players import fetch_player_info
 from models.Player import Player
 from discord import Embed
