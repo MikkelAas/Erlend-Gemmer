@@ -136,3 +136,5 @@ test.py
 .vscode
 
 src/database/members.json
+
+.fleet
