@@ -44,7 +44,7 @@ def insert_members(members: list[Member]):
     connection.close()
 
 
-def get_member_tag(name: str) -> str:
+def get_member_tag(name: str) -> str | None:
     connection = sqlite3.connect(PATH_TO_DB)
 
     cursor = connection.cursor()
@@ -56,6 +56,9 @@ def get_member_tag(name: str) -> str:
         WHERE username = '{name}'
     """
     ).fetchall()
+
+    if len(result) == 0:
+        return None
 
     tag = result[0][0]
 

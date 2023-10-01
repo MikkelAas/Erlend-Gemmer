@@ -39,6 +39,6 @@ async def on_message(message):
 
     elif message.content.startswith("$player"):
         name = message.content.split("$player ", 1)[1]
-        await message.channel.send(embed=get_player_info(name))
+        await message.channel.send(embed=get_player_info(name, 0))
 
 client.run(bot_token)
